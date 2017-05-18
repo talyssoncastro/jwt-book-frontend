@@ -1,0 +1,34 @@
+<form #editGeneroForm="ngForm" *ngIf="generoLoaded" novalidate>
+    <div class="alert alert-danger" [hidden]="editGeneroForm.form.valid">
+        <ul *ngIf="descricao.pristine || descricao.dirty && !descricao.valid">
+            <li>Informe o nome <i>(2-50 caracteres)</i></li>
+        </ul>
+    </div>
+
+    <hr/>
+    <h2>Cadastro de Gênero</h2>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-4">
+                <label class="control-label"><i class="fa" aria-hidden="true"></i>Código</label>
+                <input type="text" class="form-control" [(ngModel)]="genero.id" name="id" #id="ngModel" disabled
+                />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-4">
+                <label class="control-label"><i class="fa" aria-hidden="true"></i>Nome</label>
+                <input type="text" class="form-control" [(ngModel)]="genero.nome" name="descricao" #descricao="ngModel"  required pattern=".{2,50}" autofocus
+                />
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-danger" (click)="back()">
+        <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>Voltar</button>
+    <button type="button" [disabled]="!editGeneroForm.form.valid" class="btn btn-default" 
+            (click)="saveGenero(editGeneroForm)"> 
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Salvar</button>
+</form>

@@ -1,0 +1,32 @@
+<a class="btn btn-default" [routerLink]="['/genero', 'new']"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Novo</a>
+
+<div>
+  <table class="table table-row">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nome</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let genero of generos">
+        <td>{{genero.id}}</td>
+        <td>{{genero.nome}}</td>
+        <td>
+          <a class="btn btn-primary" [routerLink]="['/genero', genero.id, 'edit']">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            Editar
+          </a>
+        </td>
+        <td>
+          <button (click)="remover(genero)" class="btn btn-danger">
+            <i class="fa fa-trash" aria-hidden  ="true"></i>
+            Remover
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

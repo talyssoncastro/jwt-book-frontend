@@ -1,0 +1,80 @@
+<form #editLivroForm="ngForm" *ngIf="livroLoaded" novalidate>
+    <hr/>
+    <h2>Cadastro de Livro</h2>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-4">
+                <label class="control-label"><i class="fa" aria-hidden="true"></i>Código</label>
+                <input type="text" class="form-control" [(ngModel)]="livro.id" name="id" #id="ngModel" disabled
+                />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-4">
+                <label class="control-label"><i class="fa" aria-hidden="true"></i>Título</label>
+                <input type="text" class="form-control" [(ngModel)]="livro.titulo" name="titulo" #titulo="ngModel"  required pattern=".{2,50}" autofocus
+                />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-4">
+                <label class="control-label"><i class="fa" aria-hidden="true"></i>Ano</label>
+                <input type="number" class="form-control" [(ngModel)]="livro.ano" name="ano" #ano="ngModel"  required autofocus
+                />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-4">
+                <label class="control-label"><i class="fa" aria-hidden="true"></i>Páginas</label>
+                <input type="number" class="form-control" [(ngModel)]="livro.paginas" name="paginas" #paginas="ngModel"  required autofocus
+                />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-4">
+                <label class="control-label"><i class="fa" aria-hidden="true"></i>ISBN</label>
+                <input type="text" class="form-control" [(ngModel)]="livro.isbn" name="isbn" #isbn="ngModel"  required autofocus
+                />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-4">
+                <label class="control-label"><i class="fa" aria-hidden="true"></i>Editora</label>
+                <select class="form-control" [(ngModel)]="livro.editora.id" name="livro.editora.id" #livro.editora.id="ngModel"  #editora="ngModel" required>
+                    <option *ngFor="let editora of editoras" value="{{editora.id}}">{{editora.nome}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-4">
+                <label class="control-label"><i class="fa" aria-hidden="true"></i>Gênero</label>
+                <select class="form-control" [(ngModel)]="livro.genero.id" name="livro.genero.id" #livro.genero.id="ngModel"  #genero="ngModel" required>
+                    <option *ngFor="let genero of generos" value="{{genero.id}}">{{genero.nome}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-danger" (click)="back()">
+        <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>Voltar</button>
+    <button type="button" [disabled]="!editLivroForm.form.valid" class="btn btn-default" 
+            (click)="saveLivro(editLivroForm)"> 
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Salvar</button>
+</form>

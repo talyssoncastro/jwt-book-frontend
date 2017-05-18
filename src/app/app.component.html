@@ -1,3 +1,8 @@
-<h1>
-  {{title}}
-</h1>
+<div style="padding: 20px">
+  <input [routerLink]="['/editora']" type="button" name="Editora" value="Editora">
+  <input [routerLink]="['/genero']" type="button" name="Genero" value="Gênero">
+  <input [routerLink]="['/livro']" type="button" name="Livro" value="Livro">
+</div>
+<div style="padding: 20px">
+  <router-outlet></router-outlet>
+</div>

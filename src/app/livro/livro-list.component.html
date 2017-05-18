@@ -1,0 +1,42 @@
+<a class="btn btn-default" [routerLink]="['/livro', 'new']"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Novo</a>
+
+<div>
+  <table class="table table-row">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Título</th>
+        <th>Ano</th>
+        <th>Páginas</th>
+        <th>ISBN</th>
+        <th>Editora</th>
+        <th>Gênero</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let livro of livros">
+        <td>{{livro.id}}</td>
+        <td>{{livro.titulo}}</td>
+        <td>{{livro.ano}}</td>
+        <td>{{livro.paginas}}</td>
+        <td>{{livro.isbn}}</td>
+        <td>{{livro.editora.nome}}</td>
+        <td>{{livro.genero.nome}}</td>
+        <td>
+          <a class="btn btn-primary" [routerLink]="['/livro', livro.id, 'edit']">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            Editar
+          </a>
+        </td>
+        <td>
+          <button (click)="remover(livro)" class="btn btn-danger">
+            <i class="fa fa-trash" aria-hidden  ="true"></i>
+            Remover
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

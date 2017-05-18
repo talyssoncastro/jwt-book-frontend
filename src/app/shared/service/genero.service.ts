@@ -55,15 +55,13 @@ export class GeneroService {
     }
 
     update(genero: IGenero):Observable<void> {
-        let headers = new Headers();
         return this.http.put(this._baseUrl + 'genero/', JSON.stringify(genero), this.getHeader()).map((res: Response)=>{
                 return;
             }).catch(this.handleError);
     }
 
     insert(genero: IGenero):Observable<void> {
-        let headers = new Headers();
-        return this.http.post(this._baseUrl + 'genero/', this.getHeader()).map((res: Response)=>{
+        return this.http.post(this._baseUrl + 'genero/', JSON.stringify(genero), this.getHeader()).map((res: Response)=>{
                 return;
             }).catch(this.handleError);
     }

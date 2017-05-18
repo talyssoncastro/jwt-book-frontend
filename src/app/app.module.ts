@@ -21,6 +21,7 @@ import {LivroListComponent} from "./livro/livro-list.component";
 import {LivroFormComponent} from "./livro/livro-form.component";
 import {GeneroService} from "./shared/service/genero.service";
 import {LivroService} from "./shared/service/livro.service";
+import {HomeComponent} from "./home/home.component";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {LivroService} from "./shared/service/livro.service";
     GeneroFormComponent,
     LivroListComponent,
     LivroFormComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

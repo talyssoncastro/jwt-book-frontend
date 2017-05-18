@@ -6,8 +6,10 @@ import { LoginRoutes } from './login/login.routes';
 import {LoginComponent} from "./login/login.component";
 import {GeneroRoutes} from "./genero/genero.routes";
 import {LivroRoutes} from "./livro/livro.routes";
+import {HomeRoutes} from "./home/home.routes";
 
 export const routes = [
+  ...HomeRoutes,
   ...EditoraRoutes,
   ...GeneroRoutes,
   ...LivroRoutes,

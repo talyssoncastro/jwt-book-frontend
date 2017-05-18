@@ -55,15 +55,13 @@ export class LivroService {
     }
 
     update(livro: ILivro):Observable<void> {
-        let headers = new Headers();
         return this.http.put(this._baseUrl + 'livro/', JSON.stringify(livro), this.getHeader()).map((res: Response)=>{
                 return;
             }).catch(this.handleError);
     }
 
     insert(livro: ILivro):Observable<void> {
-        let headers = new Headers();
-        return this.http.post(this._baseUrl + 'livro/', this.getHeader()).map((res: Response)=>{
+        return this.http.post(this._baseUrl + 'livro/', JSON.stringify(livro), this.getHeader()).map((res: Response)=>{
                 return;
             }).catch(this.handleError);
     }

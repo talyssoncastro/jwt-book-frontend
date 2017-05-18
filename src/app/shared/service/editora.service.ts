@@ -57,7 +57,6 @@ export class EditoraService {
     }
 
     update(editora: IEditora):Observable<void> {
-        let headers = new Headers();
         return this.http.put(this._baseUrl + 'editora/', JSON.stringify(editora), this.getHeader())
           .map((res: Response)=>{
                 return;
@@ -66,8 +65,6 @@ export class EditoraService {
     }
 
     insert(editora: IEditora):Observable<void> {
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
         return this.http.post(this._baseUrl + 'editora/', JSON.stringify(editora), this.getHeader())
           .map((res: Response)=>{
                 return;
